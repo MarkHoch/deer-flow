@@ -254,6 +254,12 @@ channels:
     bot_token: $TELEGRAM_BOT_TOKEN
     allowed_users: []               # 留空表示允许所有人
 
+  wecom:
+    enabled: true
+    bot_id: $WECOM_BOT_ID
+    bot_secret: $WECOM_BOT_SECRET
+    ws_url: "wss://openws.work.weixin.qq.com"  # 可选，默认值
+
     # 可选：按渠道 / 按用户单独覆盖 session 配置
     session:
       assistant_id: mobile_agent
@@ -282,6 +288,10 @@ SLACK_APP_TOKEN=xapp-...
 # Feishu / Lark
 FEISHU_APP_ID=cli_xxxx
 FEISHU_APP_SECRET=your_app_secret
+
+# WeCom
+WECOM_BOT_ID=your_wecom_bot_id
+WECOM_BOT_SECRET=your_wecom_bot_secret
 ```
 
 **Telegram 配置**
@@ -303,6 +313,12 @@ FEISHU_APP_SECRET=your_app_secret
 2. 添加权限：`im:message`、`im:message.p2p_msg:readonly`、`im:resource`。
 3. 在 **事件订阅** 中订阅 `im.message.receive_v1`，连接方式选择 **长连接**。
 4. 复制 App ID 和 App Secret，在 `.env` 中设置 `FEISHU_APP_ID` 和 `FEISHU_APP_SECRET`，并在 `config.yaml` 中启用该渠道。
+
+**WeCom 配置**
+
+1. 在 [企业微信管理后台](https://work.weixin.qq.com/) 创建应用机器人。
+2. 开启 **WebSocket 长连接** 模式。
+3. 复制 Bot ID 和 Bot Secret，在 `.env` 中设置 `WECOM_BOT_ID` 和 `WECOM_BOT_SECRET`，并在 `config.yaml` 中启用该渠道。
 
 **命令**
 

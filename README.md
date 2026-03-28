@@ -279,6 +279,7 @@ DeerFlow supports receiving tasks from messaging apps. Channels auto-start when 
 | Telegram | Bot API (long-polling) | Easy |
 | Slack | Socket Mode | Moderate |
 | Feishu / Lark | WebSocket | Moderate |
+| WeCom / 企业微信 | WebSocket | Moderate |
 
 **Configuration in `config.yaml`:**
 
@@ -328,6 +329,12 @@ channels:
           context:
             thinking_enabled: true
             subagent_enabled: true
+
+  wecom:
+    enabled: false
+    bot_id: $WECOM_BOT_ID
+    bot_secret: $WECOM_BOT_SECRET
+    ws_url: "wss://openws.work.weixin.qq.com"  # optional, defaults to this
 ```
 
 Set the corresponding API keys in your `.env` file:
@@ -343,6 +350,10 @@ SLACK_APP_TOKEN=xapp-...
 # Feishu / Lark
 FEISHU_APP_ID=cli_xxxx
 FEISHU_APP_SECRET=your_app_secret
+
+# WeCom / 企业微信
+WECOM_BOT_ID=your_wecom_bot_id
+WECOM_BOT_SECRET=your_wecom_bot_secret
 ```
 
 **Telegram Setup**
@@ -364,6 +375,12 @@ FEISHU_APP_SECRET=your_app_secret
 2. Add permissions: `im:message`, `im:message.p2p_msg:readonly`, `im:resource`.
 3. Under **Events**, subscribe to `im.message.receive_v1` and select **Long Connection** mode.
 4. Copy the App ID and App Secret. Set `FEISHU_APP_ID` and `FEISHU_APP_SECRET` in `.env` and enable the channel in `config.yaml`.
+
+**WeCom / 企业微信 Setup**
+
+1. Create an app bot on [WeCom Admin Console](https://work.weixin.qq.com/).
+2. Enable **WebSocket Long Connection** mode.
+3. Copy the Bot ID and Bot Secret. Set `WECOM_BOT_ID` and `WECOM_BOT_SECRET` in `.env` and enable the channel in `config.yaml`.
 
 **Commands**
 

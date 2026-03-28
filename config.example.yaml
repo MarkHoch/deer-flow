@@ -586,6 +586,13 @@ checkpointer:
 #           context:
 #             thinking_enabled: true
 #             subagent_enabled: true
+#
+#   wecom:
+#     enabled: false
+#     bot_id: $WECOM_BOT_ID
+#     bot_secret: $WECOM_BOT_SECRET
+#     ws_url: "wss://openws.work.weixin.qq.com"  # optional, defaults to this
+#     heartbeat_interval: 30  # optional, heartbeat interval in seconds (30 = 30 seconds)
 
 # ============================================================================
 # Guardrails Configuration
