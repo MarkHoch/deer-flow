@@ -9,7 +9,8 @@
 | `https://www.googleapis.com/auth/drive.readonly` | 只读访问 |
 | `https://www.googleapis.com/auth/drive.metadata.readonly` | 仅元数据只读 |
 
-我们使用 `drive.file` 范围作为默认，这是最安全的选择。
+当前实现会请求 `drive`、`drive.file` 和 `drive.readonly` 范围。
+如需遵循最小权限原则，推荐优先使用 `drive.file`，因为它是更安全的最低权限选择。
 
 ## MIME 类型
 
