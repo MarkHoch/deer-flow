@@ -21,12 +21,6 @@ google-drive-integration/
 │   ├── update_file.py         - 更新文件
 │   ├── search_files.py        - 搜索文件
 │   └── utils.py               - 通用工具函数
-├── references/
-│   ├── api_guide.md           - API 详细指南
-│   ├── authentication.md      - 认证配置指南
-│   └── examples.md            - 使用示例
-├── assets/
-│   └── credentials.example.json - 凭证示例
 └── evals/
     └── evals.json             - 评估测试用例
 ```
