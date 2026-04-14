@@ -232,16 +232,18 @@ echo -e "${BLUE}Sandbox mode: $sandbox_mode${NC}"
 
 echo -e "${BLUE}Runtime mode: $RUNTIME_MODE${NC}"
 
-case "$RUNTIME_MODE" in
+    case "$RUNTIME_MODE" in
     gateway)
         export LANGGRAPH_UPSTREAM=gateway:8001
         export LANGGRAPH_REWRITE=/api/
         services="frontend gateway nginx"
         ;;
     standard)
+        export LANGGRAPH_UPSTREAM=langgraph:2024
+        export LANGGRAPH_REWRITE=/
         services="frontend gateway langgraph nginx"
         ;;
-esac
+    esac
 
 if [ "$sandbox_mode" = "provisioner" ]; then
     services="$services provisioner"
