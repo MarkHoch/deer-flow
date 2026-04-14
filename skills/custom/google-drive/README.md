@@ -34,8 +34,7 @@ pip install -r requirements.txt
 ### 3. 完成认证
 
 ```bash
-cd scripts
-python auth_setup.py
+python scripts/auth_setup.py
 ```
 
 按照提示在浏览器中完成授权。
